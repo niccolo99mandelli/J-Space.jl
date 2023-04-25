@@ -1,0 +1,75 @@
+#This is an example of parameters files of dynamic
+
+[[Graph]]
+row = 25
+col = 25
+dim = 3
+N_starting_cells = 1
+# ***
+# Otherwise matrix adjacency
+# ***#
+matrix_adjacency = "./utility/Example_adj_matrix.txt"
+
+[[Dynamic]]
+Model = "contact"
+Max_time = 1000.0
+rate_birth = 0.2
+rate_death = 0.01
+rate_migration = 0.01
+drive_mut_rate = 0.01
+average_driver_mut_rate = 0.4
+std_driver_mut_rate = 0.1
+t_bottleneck = [50.0,150.0]
+ratio_bottleneck = [0.8,0.8]
+[[Sampling]]
+Random_sampling = 1
+num_cell = 10
+#***
+# If Random_sampling = 0
+# ***#
+pos_center = 0
+radius_sampling = 10
+
+[[MolecularEvolution]]
+length_genome = 6000
+prob_base = [0.3,0.2,0.2] #only A,C,G
+
+type_isa = 0
+
+#*** if type_isa = 1 ***#
+neut_mut_rate = 0.000025
+
+#*** if type_isa = 0 ***#
+approx_snv_indel = 1
+sub_model = "K80"
+indel_size = 300
+lavalette_par = 0.5
+indel_rate = 0.0
+params = [{"alpha" = 0.5, "beta" = 0.3}]
+
+#*** if signature ***#
+mut_rate_avg = 0.000001
+used_sign = ["SBS1","SBS4","SBS16"]
+vector_change_points = [0.0,50.0]
+vector_activities = [[0.7,0.2,0.1],[0.0,0.3,0.7]]
+ratio_background_signature = 0.000001
+
+[[BulkExperiment]]
+coverage = 10.0
+FP = 0.000005
+FN = 0.000002
+
+[[ART]]
+command = ""
+#*** Otherwise write paramaters ***#
+profile = "HS25"
+len_read = 150
+tot_num_reads = 10
+outfile_prefix = "example"
+
+paired_end = 0
+#*** if paired_end == 1, they are require **#
+mean_fragsize = 200
+std_fragsize = 10
+
+mate_pair = 0
