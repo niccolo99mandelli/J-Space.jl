@@ -405,10 +405,11 @@ end
 
 # Interface with JHistint , START
 
-function Start_J_Space(filepath_matrix::AbstractString, filepath_file::AbstractString, filpeath_plot::AbstractString, slide_id::AbstractString)
+function Start_J_Space(filepath_reference::AbstractString, filepath_matrix::AbstractString, filepath_file::AbstractString, filpeath_plot::AbstractString, slide_id::AbstractString)
       println("J-SPACE: START... ($slide_id)")
       paramaters =  joinpath(@__DIR__, "..", "Parameters.toml")
       config =  joinpath(@__DIR__, "..", "Config.toml")
+
       #read paramaters
       Par_dict = TOML.parsefile(paramaters)
       #read config
@@ -507,20 +508,20 @@ function Start_J_Space(filepath_matrix::AbstractString, filepath_file::AbstractS
                                             t_bottleneck = t_bottleneck,
                                             ratio_bottleneck =ratio_bottleneck)
       end
-      CSV.write(path_save_file * "Dinamica.csv",
+      CSV.write(path_save_file * "/Dinamica.csv",
                 df,
                 delim = ",")
 
-      CSV.write(path_save_file * "n_cell_alive.csv",
+      CSV.write(path_save_file * "/n_cell_alive.csv",
                 Tables.table(n_cell_alive),
                 header=false)
 
       List_driver = DataFrame(Driver = set_mut, Fitness = α_subpop)
-      CSV.write(path_save_file * "DriverList.csv",
+      CSV.write(path_save_file * "/DriverList.csv",
                 List_driver,
                 delim = ",")
 
-      CSV.write(path_save_file * "CA_subpop.csv",
+      CSV.write(path_save_file * "/CA_subpop.csv",
                 Tables.table(CA_subpop),
                 header=false)
 
@@ -625,7 +626,8 @@ function Start_J_Space(filepath_matrix::AbstractString, filepath_file::AbstractS
       is_ISA = MolEvo_dict["type_isa"]
       #check if ref is present
       if Conf_dict["Config"][1]["generate_reference"] == 0
-            ref = Conf_dict["Config"][1]["path_reference"]
+            # ref = Conf_dict["Config"][1]["path_reference"]
+            ref = filepath_reference
             prob_base = []
       else
             ref =  MolEvo_dict["length_genome"]
