@@ -405,9 +405,10 @@ end
 
 # Interface with JHistint , START
 
-function Start_J_Space(paramaters::String, config::String,
-                       filepath_matrix::AbstractString, filepath_file::AbstractString, filpeath_plot::AbstractString slide_id::AbstractString)
+function Start_J_Space(filepath_matrix::AbstractString, filepath_file::AbstractString, filpeath_plot::AbstractString, slide_id::AbstractString)
       println("J-SPACE: START... ($slide_id)")
+      paramaters =  joinpath(@__DIR__, "..", "Parameters.toml")
+      config =  joinpath(@__DIR__, "..", "Config.toml")
       #read paramaters
       Par_dict = TOML.parsefile(paramaters)
       #read config
