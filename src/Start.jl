@@ -527,7 +527,7 @@ function Start_J_Space(filepath_reference::AbstractString, filepath_matrix::Abst
 
       #save configuration of time at specific time
       if Graph_configuration == 1
-            println("J-SPACE: save plot... ($slide_id)")
+            println("J-SPACE: SAVE PLOT... ($slide_id)")
             for i in 1:length(Gs_conf)
                   f, ax, p, colors = plot_lattice(Gs_conf[i], set_mut)
                   if Sys.iswindows()
@@ -812,4 +812,6 @@ function Start_J_Space(filepath_reference::AbstractString, filepath_matrix::Abst
                            no_ALN = no_ALN)
             end
       end """
+      println("J-SPACE: SIMULATION TERMINATED... ($slide_id)")
+      println("---------------------------------------------")
 end

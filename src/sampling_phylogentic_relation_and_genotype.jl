@@ -161,7 +161,7 @@ function create_tree(matrix::DataFrame, newick::Bool, tmax::Float64)
     end
     ## Create format newick
     if newick == true
-        println("create format newick....")
+        println("J-SPACE: CREATE FORMAT NEWICK....")
         net = format_newick(tree_reduce)
         return tree_reduce, net
     end
