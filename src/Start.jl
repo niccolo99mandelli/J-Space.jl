@@ -748,11 +748,12 @@ function Start_J_Space(filepath_reference::AbstractString, filepath_matrix::Abst
       end
 
       ##ART
-      SC_noise = Conf_dict["FileOutputExperiments"][1]["Single_cell_noise"]
-      if SC_noise != 0
-            println("J-SPACE: CALL ART... ($slide_id)")
+      """
+       SC_noise = Conf_dict["FileOutputExperiments"][1]["Single_cell_noise"]
+       if SC_noise != 0
+           # println("J-SPACE: CALL ART... ($slide_id)")
             if Sys.iswindows()
-                  path_fasta = path_save_file*"\\Fasta output\\"
+                 path_fasta = path_save_file*"\\Fasta output\\"
             else
                   path_fasta = path_save_file*"/Fasta output/"
             end
@@ -810,5 +811,5 @@ function Start_J_Space(filepath_reference::AbstractString, filepath_matrix::Abst
                            std_fragsize = std_fragsize,
                            no_ALN = no_ALN)
             end
-      end
+      end """
 end
