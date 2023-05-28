@@ -21,7 +21,7 @@ driver_birth_rates = "./utility/driver_advantage.txt"
 Tree_Newick = 1
 Final_configuration = 1
 Driver_list = 1
-Driver_Tree = 0
+Driver_Tree = 1
 
 [[FileOutputExperiments]]
 Single_cell_fasta = 1
